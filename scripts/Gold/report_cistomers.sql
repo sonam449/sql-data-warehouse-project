@@ -24,12 +24,6 @@ Highlights:
 -- =============================================================================
 -- Create Report: gold.report_customers
 -- =============================================================================
--- =====================================================
--- Create Report: gold.report_customers
--- =====================================================
--- =====================================================
--- Create Report: gold.report_customers
--- =====================================================
 
 -- Drop the view if it already exists
 IF OBJECT_ID('gold.report_customers', 'V') IS NOT NULL
@@ -51,7 +45,7 @@ WITH base_query AS (
         DATEDIFF(year, c.birthdate, GETDATE()) AS age
     FROM gold.fact_sales f
     LEFT JOIN gold.dim_customers c
-        ON c.customer_key = f.customer_key
+    ON c.customer_key = f.customer_key
     WHERE order_date IS NOT NULL
 ),
 
